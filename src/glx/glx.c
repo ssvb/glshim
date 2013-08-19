@@ -533,6 +533,8 @@ void glXSwapIntervalEXT(Display *display, int drawable, int interval) {
 void glXCopyContext(Display *display, GLXContext src, GLXContext dst, GLuint mask) {}
 void glXCreateGLXPixmap(Display *display, XVisualInfo * visual, Pixmap pixmap) {} // should return GLXPixmap
 void glXDestroyGLXPixmap(Display *display, void *pixmap) {} // really wants a GLXpixmap
+void glXCreateWindow(Display *display, GLXFBConfig config, Window win, int *attrib_list) {} // should return GLXWindow
+void glXDestroyWindow(Display *display, void *win) {} // really wants a GLXWindow
 void glXGetCurrentDrawable() {} // this should actually return GLXDrawable. Good luck.
 Bool glXIsDirect(Display * display, GLXContext ctx) {
     return true;

@@ -227,3 +227,5 @@ XVisualInfo *glXGetVisualFromFBConfig(Display *display, GLXFBConfig config);
 GLXFBConfig *glXChooseFBConfig(Display *display, int screen, const int *attrib_list, int *count);
 GLXFBConfig *glXGetFBConfigs(Display *display, int screen, int *count);
 int glXGetFBConfigAttrib(Display *display, GLXFBConfig config, int attribute, int *value);
+void glXCreateWindow(Display *display, GLXFBConfig config, Window win, int *attrib_list);
+void glXDestroyWindow(Display *display, void *win);
