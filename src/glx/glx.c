@@ -341,8 +341,17 @@ XVisualInfo *glXChooseVisual(Display *display,
     if (xDisplay == NULL) {
         xDisplay = display;
     }
+
+    int default_depth = XDefaultDepth(display, screen);
+    if (default_depth != 16 && default_depth != 24)
+        printf("libGL: unusual desktop color depth %d\n", default_depth);
+
     XVisualInfo *visual = (XVisualInfo *)malloc(sizeof(XVisualInfo));
-    XMatchVisualInfo(display, screen, 16, TrueColor, visual);
+    if (!XMatchVisualInfo(display, screen, default_depth, TrueColor, visual)) {
+        printf("libGL: XMatchVisualInfo failed in glXChooseVisual\n");
+        return NULL;
+    }
+
     return visual;
 }
 
